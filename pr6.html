@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이영진</title>
+    <script>
+        function evaluation(n){
+            var res = eval(n);
+            if(n == null || n==""){
+                alert("잘못입력하셨습니다.");
+                return;
+            }
+            document.write(n + "=" + res);
+        }
+    </script>
+</head>
+<body>
+    <script>
+        var ret = prompt("이영진");
+        evaluation(ret);
+    </script>
+</body>
+</html>
