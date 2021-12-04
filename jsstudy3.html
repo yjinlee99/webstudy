@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function inquiry(){
+            return this.balance;
+        }
+        function deposit(val){
+            this.balance += val;
+        }
+        function withdraw(val){
+            this.balance -= val;
+            return val;
+        }
+        function Account(owner, code, balance){
+            this.owner = owner;
+            this.balance = balance;
+            this.code = code;
+
+            this.inquiry = inquiry;
+            this.deposit = deposit;
+            this.withdraw = withdraw;
+        };
+    </script>
+</head>
+<body>
+    <h2>object 만드는 방법들</h2>
+    <hr>
+
+    <!--h4>new Object()이용</!--h4>
+    <script-->
+        var account = new Object();
+        account.owner = 'LYJ';
+        account.balance = 35000;
+        account.code = '1111';
+
+        account.inquiry = inquiry;
+        account.deposit = deposit;
+        account.withdraw = withdraw;
+    </script-->
+
+    <h4>리터럴 표기법<h4>
+    <!--script>
+        var account = {
+            owner : 'LYJ',
+            balance : 35000,
+            code : '1111',
+
+            inquiry : inquiry,
+            deposit : deposit,
+            withdraw : withdraw
+
+            //inquiry : function() {return balance; },
+            //deposit : function(val) {balance += val; },
+            //withdraw : function(val){
+            //    this.balance -= val;
+            //    return val;
+        };
+    </script-->
+
+    <h4>Prototype 이용하기</h4>
+    <script>
+        account = new Account('LYJ','5555',50000);
+    </script>
+    <script>
+        document.write('account: ');
+        document.write(account.owner+', ');
+        document.write(account.code+', ');
+        document.write(account.balance+'<br><br>');
+
+        account.deposit(1000);
+        document.write('1000원 저금 후의 잔액: '+ account.inquiry() + "<br>");
+        account.withdraw(5000);
+        document.write("5000원 인출 후 잔액: " + account.inquiry()+ "<br>");
+        document.write("<hr><br>");
+    </script>
+
+</body>
+</html>
